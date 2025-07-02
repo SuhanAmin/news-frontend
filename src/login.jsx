@@ -21,9 +21,11 @@ function toggleForms(){
 }
 
 async function handlelogin(e){
+ //console.log(email,password);
  
  e.preventDefault()
-  const res=await fetch("http://localhost:3000/api/auth/login",{
+
+  const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/login",{
     method:"POST",
     headers:{
       "Content-Type":"application/json",

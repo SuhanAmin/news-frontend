@@ -28,18 +28,21 @@ import { set } from 'mongoose';
   },[addlocalnews,like])
   async function load() {
 
-    const res=await fetch("http://localhost:3000/api/auth/home",{
+    const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/home",{
       method:"GET",
-      credentials:"include"
+      credentials:"include",
     })
    
+     if (res.status === 401) {
+    alert("Please log in first!");
+    navigate('/login');  // or wherever your login page is
+    return;
+  }
     const data=await res.json()
     //console.log(data);
-      if (res.status === 401) {
-      alert("You must be logged in to like a post.");
-       return navigate('/');
-    }
-    setnews(data)
+    //console.log(data);
+     
+    setnews(data||[])
     
   }
   
@@ -58,7 +61,7 @@ import { set } from 'mongoose';
     //console.log(image,title,description,location,date,time);
     //console.log(formData);
     
-    const res= await fetch("http://localhost:3000/api/auth/addlocalnews",{
+    const res= await fetch("https://news-2-zgo5.onrender.com/api/auth/addlocalnews",{
       method:"POST",
       credentials:"include",
      
@@ -79,10 +82,10 @@ import { set } from 'mongoose';
 
   async function like(id) {
    
-    console.log(id);
+   // console.log(id);
     
     
-   const res= await fetch(`http://localhost:3000/api/auth/like/${id}`, {
+   const res= await fetch(`https://news-2-zgo5.onrender.com/api/auth/like/${id}`, {
       method: "POST",
       credentials: "include",
       headers: {
