@@ -54,9 +54,7 @@ router.post('/register',async(req,res)=>{
   
 })
 
-router.get('/test-cors', (req, res) => {
-  res.json({ msg: 'CORS is working!' });
-});
+
 
 
 router.post('/login',async(req,res)=>{
@@ -75,7 +73,12 @@ router.post('/login',async(req,res)=>{
  let match =await bcrypt.compare(password,user.password)
 if(match){
   const token=jwt.sign({email},process.env.JWT_SECRET)
-  res.cookie("token",token)
+  res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",  // true in prod, false in dev
+  sameSite: "lax",  // or "none" if frontend and backend are on different domains and https is enabled
+  maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+});
   res.json({msg:"Logged in",done:true})
 }
 else{
