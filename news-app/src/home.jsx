@@ -30,13 +30,15 @@ import { set } from 'mongoose';
 
     const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/home",{
       method:"GET",
-      credentials:"include"
+      credentials:"include",
     })
    
+   
     const data=await res.json()
+    console.log(data);
     //console.log(data);
      
-    setnews(data)
+    setnews(data||[])
     
   }
   
@@ -76,7 +78,7 @@ import { set } from 'mongoose';
 
   async function like(id) {
    
-    console.log(id);
+   // console.log(id);
     
     
    const res= await fetch(`https://news-2-zgo5.onrender.com/api/auth/like/${id}`, {

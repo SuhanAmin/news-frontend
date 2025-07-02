@@ -44,7 +44,14 @@ router.post('/register',async(req,res)=>{
   })
   // console.log(user);
   const token=jwt.sign({email},process.env.JWT_SECRET)
-  res.cookie("token",token)
+  res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",  // true in prod, false in dev
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",  // 'none' for cross-site
+  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+});
+
+
   res.json({msg:"Logged in Successfully",done:true})
   }
   catch(err){
@@ -76,9 +83,10 @@ if(match){
   res.cookie("token", token, {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",  // true in prod, false in dev
-  sameSite: "lax",  // or "none" if frontend and backend are on different domains and https is enabled
-  maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",  // 'none' for cross-site
+  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
 });
+//console.log(token);
   res.json({msg:"Logged in",done:true})
 }
 else{
