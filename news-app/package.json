@@ -1,6 +1,5 @@
 {
   "name": "news-app",
-<<<<<<< HEAD
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -25,27 +24,5 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
     "vite": "^7.0.0"
-=======
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cloudinary": "^1.41.3",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.1",
-    "multer": "^2.0.1",
-    "multer-storage-cloudinary": "^4.0.0"
->>>>>>> 24d0518fd336c56c0e8cae3fde740369dbc13720
   }
 }
