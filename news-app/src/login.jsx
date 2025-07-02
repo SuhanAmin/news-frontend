@@ -24,6 +24,7 @@ async function handlelogin(e){
  //console.log(email,password);
  
  e.preventDefault()
+
   const res=await fetch("https://news-1-v7v7.onrender.com/api/auth/login",{
     method:"POST",
     headers:{

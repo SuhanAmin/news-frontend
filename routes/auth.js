@@ -63,6 +63,10 @@ router.post('/login',async(req,res)=>{
   
   try{
     const {email,password}=req.body
+    if (!email || !password) {
+      console.log('Login error: Missing email or password');
+      return res.status(400).json({ message: 'Email and password are required' });
+    }
 
  let user=await usermodel.findOne({email})
  if(!user){
