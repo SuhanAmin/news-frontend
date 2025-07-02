@@ -1,0 +1,364 @@
+/* Reset and base styles */
+/* Reset default layout and make content start from top */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  display: block; /* Ensure no centering occurs */
+  overflow-x: hidden;
+}
+
+
+header {
+  background: linear-gradient(90deg, #2c3e50, #4ca1af);
+  color: white;
+  padding: 1.9rem 2rem;
+  font-size: 1.9rem;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Section styles */
+.section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section1 {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+h3.local {
+  margin-top: 8rem;
+  color: #34495e;
+ 
+}
+
+/* Upload Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.upload-form input,
+.upload-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.upload-form input:focus,
+.upload-form textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+.upload-form button {
+  background-color: #2980b9;
+  color: white;
+ 
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+
+.upload-form button:hover {
+  background-color: #3498db;
+}
+
+/* Plus Button */
+.plus-btn {
+  background-color: #27ae60;
+  color: white;
+  font-size: 2.5rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 8rem;
+  right: 8rem;
+  cursor: pointer;
+  float: right;
+  transition: 0.3s;
+}
+
+.plus-btn:hover {
+  background-color: #2ecc71;
+}
+
+/* Profile Section */
+.profile-card {
+  background-color: white;
+  padding: 2.5rem 4rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  margin-top: 130px;
+  width: 100%;
+}
+
+.profile-card p {
+  margin: 0.5rem 0;
+}
+
+.profile-card button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.profile-card button:hover {
+  background-color: #d35400;
+}
+
+/* Edit form */
+.edit-form {
+  display: none;
+  margin-top: 1rem;
+}
+
+.edit-form input {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #2c3e50;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+footer button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+footer button.active {
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+}
+
+footer button:hover {
+  color: #1abc9c;
+}
+
+/* Container for all news articles */
+#news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1000px));
+  gap: 20px;
+  padding: 20px;
+  width: 1000px;
+ 
+ margin-top: 15%;
+ margin-bottom: 10%;
+ margin-left: -10%;
+}
+
+/* Individual article card */
+.news-article {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+   
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.news-article:hover {
+  transform: translateY(-5px);
+}
+
+/* News image */
+.news-image {
+  width: 100%;
+  max-height: 800px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* News title */
+.news-article h3 {
+  font-size: 1.4rem;
+  padding: 30px 0px;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* News description */
+.news-article p {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+/* Read more link */
+.news-article a {
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-article a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: Loading & Error messages */
+.error {
+  color: red;
+  text-align: center;
+  margin: 20px;
+}
+
+
+.upload-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;        /* Wider now */
+  max-width: 700px;  /* Optional max width */
+  margin: 30px auto 20px auto; /* Center horizontally, bigger vertical margin */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.upload-card img {
+  width: 100%;
+  height: 350px;   /* Taller image for bigger card */
+  border-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.upload-card h2 {
+  font-size: 2rem;  /* Bigger title */
+  margin: 20px 0;
+  color: #222;
+}
+
+.upload-card p {
+  font-size: 1.2rem; /* Slightly bigger text */
+  color: #555;
+  margin: 16px;
+}
+
+.upload-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #777;
+  margin: 16px;
+}
+
+.location-icon {
+  font-weight: 600;
+  color: #333;
+}
+
+.upload-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.upload-actions button {
+  flex: 1;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-actions button:hover {
+  background-color: #0056b3;
+}
+.container1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+}
+
