@@ -54,6 +54,11 @@ router.post('/register',async(req,res)=>{
   
 })
 
+router.get('/test-cors', (req, res) => {
+  res.json({ msg: 'CORS is working!' });
+});
+
+
 router.post('/login',async(req,res)=>{
   
   try{

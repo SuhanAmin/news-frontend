@@ -28,7 +28,7 @@ import { set } from 'mongoose';
   },[addlocalnews,like])
   async function load() {
 
-    const res=await fetch("http://localhost:3000/api/auth/home",{
+    const res=await fetch("https://news-1-v7v7.onrender.com/api/auth/home",{
       method:"GET",
       credentials:"include"
     })
@@ -58,7 +58,7 @@ import { set } from 'mongoose';
     //console.log(image,title,description,location,date,time);
     //console.log(formData);
     
-    const res= await fetch("http://localhost:3000/api/auth/addlocalnews",{
+    const res= await fetch("https://news-1-v7v7.onrender.com/api/auth/addlocalnews",{
       method:"POST",
       credentials:"include",
      
@@ -82,7 +82,7 @@ import { set } from 'mongoose';
     console.log(id);
     
     
-   const res= await fetch(`http://localhost:3000/api/auth/like/${id}`, {
+   const res= await fetch(`https://news-1-v7v7.onrender.com/api/auth/like/${id}`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -23,7 +23,7 @@ const [comments, setComments] = useState([
         hello()
      },[])
      async function hello(){
-        const res=await fetch("http://localhost:3000/api/auth/profile",{
+        const res=await fetch("https://news-1-v7v7.onrender.com/api/auth/profile",{
           method:"GET",
           credentials:"include"
         })
@@ -52,7 +52,7 @@ function toggleEdit(){
 async function saveProfile(e){
       
     e.preventDefault()
-    const res=await fetch("http://localhost:3000/api/auth/saveprofile",{
+    const res=await fetch("https://news-1-v7v7.onrender.com/api/auth/saveprofile",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -71,7 +71,7 @@ async function saveProfile(e){
 }
 
 async function logout(){
-    const res=await fetch("http://localhost:3000/api/auth/logout",{
+    const res=await fetch("https://news-1-v7v7.onrender.com/api/auth/logout",{
         method:"POST",
         credentials:"include"
     }).then(res=>res.json())
@@ -83,7 +83,7 @@ async function logout(){
 }
 
  async function deletepost(id) {
-  const res = await fetch(`http://localhost:3000/api/auth/deletepost/${id}`, {
+  const res = await fetch(`https://news-1-v7v7.onrender.com/api/auth/deletepost/${id}`, {
     method: "DELETE",
     credentials: "include",
     headers: {
