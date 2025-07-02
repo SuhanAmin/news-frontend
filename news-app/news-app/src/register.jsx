@@ -25,7 +25,7 @@ async function handleregister(e){
   e.preventDefault()
 //console.log(name,email,mobile);
 
-  const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/register",{
+  const res=await fetch("http://localhost:3000/api/auth/register",{
     method:"POST",
     headers:{
       "Content-Type":"application/json",
