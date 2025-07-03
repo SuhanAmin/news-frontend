@@ -69,7 +69,11 @@ import { set } from 'mongoose';
     .then(data=>{alert(data.msg)
       setnews([data,...news])
       closemodel()
+
       setRefresh(prev=>!prev)
+
+    
+
       //load()
      
       
@@ -103,7 +107,9 @@ import { set } from 'mongoose';
     );
 
     setnews(updatedNews);
+
      setRefresh(prev=>!prev)
+
         
   };
    
