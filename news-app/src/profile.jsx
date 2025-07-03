@@ -11,25 +11,28 @@ import './home.css'
      const[news,setnews]=useState([])
 
       
-
+const [activeCommentIndex, setActiveCommentIndex] = useState(null);
+const [comments, setComments] = useState([
+  { user: 'Alice', text: 'Great post!' },
+  { user: 'Bob', text: 'Nice pic!' },
+  { user: 'Charlie', text: 'Wow! Amazing.' },
+]);
 
 
      useEffect(()=>{
         hello()
      },[])
      async function hello(){
-        const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/profile",{
+        const res=await fetch("http://localhost:3000/api/auth/profile",{
           method:"GET",
           credentials:"include"
         })
-        if (res.status === 401) {
-    alert("Please log in first!");
-    navigate('/login');  // or wherever your login page is
-    return;
-  }
         const data=await res.json()
        // console.log(data);
-        
+         if (res.status === 401) {
+      alert("You must be logged in .");
+      return navigate('/');
+    }
         setname(data.name)
         setemail(data.email)
         setphone(data.mobile)
@@ -37,7 +40,7 @@ import './home.css'
         //console.log(data.posts);
         
 
-        setnews(data.posts||[])
+        setnews(data.posts)
         
         
      }
@@ -49,7 +52,7 @@ function toggleEdit(){
 async function saveProfile(e){
       
     e.preventDefault()
-    const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/saveprofile",{
+    const res=await fetch("http://localhost:3000/api/auth/saveprofile",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -68,7 +71,7 @@ async function saveProfile(e){
 }
 
 async function logout(){
-    const res=await fetch("https://news-2-zgo5.onrender.com/api/auth/logout",{
+    const res=await fetch("http://localhost:3000/api/auth/logout",{
         method:"POST",
         credentials:"include"
     }).then(res=>res.json())
@@ -80,7 +83,7 @@ async function logout(){
 }
 
  async function deletepost(id) {
-  const res = await fetch(`https://news-2-zgo5.onrender.com/api/auth/deletepost/${id}`, {
+  const res = await fetch(`http://localhost:3000/api/auth/deletepost/${id}`, {
     method: "DELETE",
     credentials: "include",
     headers: {

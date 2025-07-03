@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 const user = require('./user')
-
+mongoose.connect(process.env.MONGODB_URI)
 
 const postSchema=mongoose.Schema({
     image:String,

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
+import axios from 'axios';
 
 function News() {
   const navigate = useNavigate();
@@ -8,25 +9,15 @@ function News() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = '/api/auth/news';
-    fetch(url,{
-      credentials:'include'
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch news');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setArticles(data.articles || []);
-      })
-      .catch(error => {
-        setError(error.message);
-        console.error('Error fetching news:', error);
-      })
-      
-  }, []);
+  axios.get(`https://newsapi.org/v2/everything?q=india&language=en&sortBy=publishedAt&apiKey=5b9b6485ee464c5cbb5d36093ff0aee1`)
+    .then(res => setArticles(res.data.articles))
+   .catch(err => {
+  console.error("News fetch failed:", err);
+  setError("Failed to load news. Please try again later.");
+});
+
+}, []);
+
 
   return (
     <>

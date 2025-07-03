@@ -1,28 +1,19 @@
 {
   "name": "news-app",
-  "version": "1.0.0",
-  "main": "app.cjs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "start": "node app.cjs"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "bcrypt": "^6.0.0",
-    "cloudinary": "^1.41.3",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.1",
-    "multer": "^2.0.1",
-    "multer-storage-cloudinary": "^4.0.0",
+    "axios": "^1.10.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.3",
-    "serve": "^14.2.0"
+    "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
@@ -33,10 +24,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
-    "vite": "^7.0.0",
-    "rollup": "^3.29.4"
-  },
-  "engines": {
-    "node": "20.x"
+    "vite": "^7.0.0"
   }
 }

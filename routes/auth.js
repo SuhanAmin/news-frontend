@@ -44,14 +44,7 @@ router.post('/register',async(req,res)=>{
   })
   // console.log(user);
   const token=jwt.sign({email},process.env.JWT_SECRET)
-  res.cookie("token", token, {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",  // true in prod, false in dev
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",  // 'none' for cross-site
-  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-});
-
-
+  res.cookie("token",token)
   res.json({msg:"Logged in Successfully",done:true})
   }
   catch(err){
@@ -61,17 +54,10 @@ router.post('/register',async(req,res)=>{
   
 })
 
-
-
-
 router.post('/login',async(req,res)=>{
   
   try{
     const {email,password}=req.body
-    if (!email || !password) {
-      console.log('Login error: Missing email or password');
-      return res.status(400).json({ message: 'Email and password are required' });
-    }
 
  let user=await usermodel.findOne({email})
  if(!user){
@@ -80,13 +66,7 @@ router.post('/login',async(req,res)=>{
  let match =await bcrypt.compare(password,user.password)
 if(match){
   const token=jwt.sign({email},process.env.JWT_SECRET)
-  res.cookie("token", token, {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === "production",  // true in prod, false in dev
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",  // 'none' for cross-site
-  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-});
-//console.log(token);
+  res.cookie("token",token)
   res.json({msg:"Logged in",done:true})
 }
 else{
