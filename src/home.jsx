@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import "./home.css"
-import { set } from 'mongoose';
+
 
  function Home() {
   const navigate=useNavigate()
